@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:14.5-bullseye
+    container_name: my_postgres
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=next-prisma-starter-new
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
